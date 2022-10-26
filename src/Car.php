@@ -1,122 +1,29 @@
 <?php
 
-class Car 
-{
-    private int $nbWheels;
-    private int $currentSpeed;
-    private string $color;
-    private int $nbSeats;
-    private string $energy;
+require_once __DIR__.'/Vehicle.php';
+
+
+class Car extends Vehicle {
+ 
     private int $energyLevel;
 
-    public function __construct(string $color, int $nbSeats, string $energy) 
+  
+
+
+    public function __construct(string $color, int $nbSeats, string $energy)
+{
+    parent::__construct($color, $nbSeats, $energy);
+  }
+
+
+
+    public function getEnergyLevel(): int
     {
-        $this->color = $color;
-        $this->nbSeats = $nbSeats;
-        $this->energy = $energy;
+        return $this->energyLevel;
     }
 
-
-    public function start() : string 
+    public function setEnergyLevel(int $energyLevel): void
     {
-        if($this->energyLevel <0){
-            $fuel = "Let's Go";
-        }
-        else {
-            $fuel = "Not fuel yet";
-        }
-        return $fuel;
+        $this->energyLevel = $energyLevel;
     }
-
-    public function forward(): string
-    {
-        $this->currentSpeed = 15;
-    
-        return "Go !";
-    }
-    
-    public function brake(): string
-    {
-       $sentence = "";
-       while ($this->currentSpeed > 0) {
-           $this->currentSpeed--;
-           $sentence .= "Brake !!!";
-       }
-       $sentence .= "I'm stopped !";
-       return $sentence;
-    }
-
-
-
-
-
-
-    public function getNbWheels(): int
-    {
-        return $this->nbWheels;
-    }
-    
-    public function setNbWHeels(int $nbWheels): void
-    {
-        $this->nbWheels = $nbWheels;
-    }
-    
-    
-    
-    public function getCurrentSpeed(): int
-    {
-        return $this->currentSpeed;
-    }
-    
-    public function setCurrentSpeed(int $currentSpeed): void
-    {
-        $this->currentSpeed = $currentSpeed;
-    }
-
-
-
-    public function getColor(): string
-{
-    return $this->color;
-}
-
-public function setColor(string $color): void
-{
-    $this->color = $color;
-}
-
-
-
-public function getNbSeats(): int
-{
-    return $this->nbSeats;
-}
-
-public function setNbSeats(int $NbSeats): void
-{
-    $this->nbSeats = $nbSeats;
-}
-
-public function getEnergy(): string
-{
-    return $this->energy;
-}
-
-public function setEnergy(string $energy): void
-{
-    $this->energy = $energy;
-}
-
-
-
-public function getEnergyLevel(): int
-{
-    return $this->energyLevel;
-}
-
-public function setEnergyLevel(int $energyLevel): void
-{
-    $this->energyLevel= $energyLevel;
-}
-
 }
