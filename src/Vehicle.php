@@ -2,7 +2,7 @@
 
 // Vehicle.php
 
-class Vehicle
+abstract class Vehicle
 {
  
     protected string $color;
@@ -20,7 +20,7 @@ class Vehicle
         'electric',
     ];
 
-
+   // abstract public function changeWheel();
 
     public function __construct(string $color, int $nbSeats, string $energy)
     {
