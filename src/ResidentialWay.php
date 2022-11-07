@@ -1,18 +1,23 @@
 <?php
 
-require_once __DIR__.'/HighWay.php';
+require_once 'HighWay.php';
+require_once 'Vehicle.php';
+require_once 'Car.php';
+require_once 'Bicycle.php';
+require_once 'Truck.php';
 
 
 final class ResidentialWay extends Highway  
 {
 
-    public function addVehicle($vehicle) {
-        if ($vehicle == "Bike" || $vehicle =="Skateboard") 
-        {
-            $currentVehciles = $vehicles;
+    public function addVehicle(Vehicle $vehicle): string
+    {
+        if ($vehicle instanceof Bicycle) {
+            $this->setCurrentVehicles($vehicle);
+            $message = "vehicle added";
+        } else {
+            $message = "vehicle not added";
         }
-        else {
-            echo "Les autres véhicules sont interdit.";
-        }
+        return $message;
     }
 }

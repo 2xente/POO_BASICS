@@ -1,5 +1,10 @@
 <?php 
 
+require_once 'Vehicle.php';
+require_once 'Car.php';
+require_once 'Bicycle.php';
+require_once 'Truck.php';
+
 abstract class HighWay 
 {
     private array $currrentVehicles;
@@ -12,7 +17,7 @@ abstract class HighWay
         $this->maxSpeed = $maxSpeed;
     }
 
-    abstract public function addVehicle($vehicle);
+    abstract public function addVehicle(Vehicle $vehicle);
 
     public function getCurrentVehicles(): array
     {
